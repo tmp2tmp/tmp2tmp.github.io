@@ -44,7 +44,7 @@ int main() {
    cout << "hello world!" << endl;
 }
 ```
-link:  [test](https://github.com/tmp2tmp/test)
+link:  [test](https://tmp2tmp.github.io/test/)
 
 aaaa:  [google](https://www.google.com)
 
