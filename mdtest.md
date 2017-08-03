@@ -44,13 +44,13 @@ struct World : Ground	{ };
 struct Fx
 {
 //required:
-    using type    = void(const char*, Speak*, Ground&);	/*  declares the function signatue
-							    virtual params : {Speak*,Ground&} ;  two polymorphic params
-							*/
-    using domains = std::tuple<				/* declares valid types of arguments */
-			vane::_domain<Speak, Hello>,	//1st virtual argument is valid  when: it is a Speak or a Hello
-			vane::_domain<Ground, World>	//2nd virtual one      is valid  when: it is a Ground or a World
-		    >;
+    using type = void(const char*, Speak*, Ground&); /* declares the function signatue
+							virtual params : {Speak*,Ground&} ;  two polymorphic params
+						     */
+    using domains = std::tuple<		/* declares valid types of arguments */
+	vane::_domain<Speak, Hello>,    //1st virtual argument is valid  when: it is a Speak or a Hello
+	vane::_domain<Ground, World>    //2nd virtual one      is valid  when: it is a Ground or a World
+    >;
 
 //optional (individual functions):
     void operator()(const char *s, Speak *p, Ground &q) { printf("%10s --> speak_ground??\n", s);   }
@@ -71,7 +71,7 @@ int main() try
 {
     Fx                     func;        //ordinary function object
     vane::multi_func<Fx>   multi_func;  //multi_func object
-    vane::virtual_func<void(const char*, Speak*, Ground&)> *vfunc = &multi_func;    //a multi_func is a virtual_func
+    vane::virtual_func<void(const char*, Speak*, Ground&)> *vfunc = &multi_func; //a multi_func is a virtual_func
 
 
     Hello hello; 
