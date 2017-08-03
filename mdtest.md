@@ -30,16 +30,16 @@ int main() {
      |       |
     Hello   World 
 */
-struct Speak		{ virtual ~Speak(){} };		//polymorphic base is required
-struct Hello : Speak	{ };
+struct Speak	      { virtual ~Speak(){} };   //polymorphic base is required
+struct Hello : Speak  { };
 
 
-struct Ground		{ virtual ~Ground(){} };	//polymorphic base is required
-struct World : Ground	{ };
+struct Ground	      { virtual ~Ground(){} };  //polymorphic base is required
+struct World : Ground { };
 
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
 //Fx: defines a set of functions
 struct Fx
 {
@@ -47,9 +47,9 @@ struct Fx
     using type = void(const char*, Speak*, Ground&); /* declares the function signatue
 							virtual params : {Speak*,Ground&} ;  two polymorphic params
 						     */
-    using domains = std::tuple<		/* declares valid types of arguments */
-	vane::_domain<Speak, Hello>,    //1st virtual argument is valid  when: it is a Speak or a Hello
-	vane::_domain<Ground, World>    //2nd virtual one      is valid  when: it is a Ground or a World
+    using domains = std::tuple<	      /* declares valid types of arguments */
+	vane::_domain<Speak, Hello>,  //1st virtual argument is valid  when: it is a Speak or a Hello
+	vane::_domain<Ground, World>  //2nd virtual one      is valid  when: it is a Ground or a World
     >;
 
 //optional (individual functions):
@@ -59,7 +59,7 @@ struct Fx
 
 
 
-/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
 
 template<typename Fx>
 void hello_world(Fx *func, const char *p, Speak *s, Ground &g)
