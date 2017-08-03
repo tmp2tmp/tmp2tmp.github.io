@@ -1,3 +1,8 @@
+---
+layout: page
+title: mdtest.md
+---
+
 {% highlight ruby %}
 def show
   @widget = Widget(params[:id])
