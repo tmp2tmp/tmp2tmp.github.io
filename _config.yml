@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # --- General options --- #
 
 # url is the full website URL
@@ -209,3 +210,9 @@ gems:
 
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
+=======
+theme: jekyll-theme-slate
+title: tmp2tmp’s  homepage
+description: " "
+#description: Feel free to bookmark this to keep an eye on my project updates
+>>>>>>> origin/master
