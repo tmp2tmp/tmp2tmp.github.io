@@ -43,6 +43,21 @@ int main() {
 }
 ```
 
+```c++
+#include <iostream>
+using namespace std;
+int main() {
+   cout << "hello world!" << endl;
+}
+```
+```cplusplus
+#include <iostream>
+using namespace std;
+int main() {
+   cout << "hello world!" << endl;
+}
+```
+
 link:  [test](https://tmp2tmp.github.io/test/)
 
 aaaa:  [google](https://www.google.com)
