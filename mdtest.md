@@ -4,7 +4,8 @@ title: mdtest.md
 css: /test.css
 ---
 ...............
-{% highlight ruby linenos %}
+...............
+{% highlight ruby linenos xxx %}
 def show
   @widget = Widget(params[:id])
   respond_to do |format|
