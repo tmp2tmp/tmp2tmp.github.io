@@ -44,7 +44,7 @@ navbar-links:
 # Important: you must keep the "name" parameter, everything else you can remove
 author:
   name: tmp2tmp			    #XXX:zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
-  email: "youremail@domain.com"
+  email: "tmp2tmp@domain.com"
 #  facebook: yourname  # eg. daattali
    github: tmp2tmp     # eg. daattali
 #  twitter: yourname   # eg. daattali
