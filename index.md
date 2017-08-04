@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Welcome
-use-site-title: true
 ---
 You can use the [editor on GitHub](https://github.com/tmp2tmp/tmp2tmp.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
