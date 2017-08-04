@@ -1,7 +1,7 @@
 ---
 layout: page
 title: mdtest.md
-css: test.css
+css: /test.css
 ---
 
 {% highlight ruby %}
