@@ -3,7 +3,7 @@ layout: page
 title: mdtest.md
 css: /test.css
 ---
-
+...............
 {% highlight ruby linenos %}
 def show
   @widget = Widget(params[:id])
