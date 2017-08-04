@@ -27,44 +27,45 @@ int main() {
 #include <stdio.h>
 
 
-/* class hierachy:
-    Speak   Ground 
-     |       |
-    Hello   World 
+/* inheritance hierachy:
+      Speak        What 
+      /  \         /  \
+  Hello  Open  World  Sesame
 */
-struct Speak	      { virtual ~Speak(){} };   //polymorphic base is required
-struct Hello : Speak  { };
+struct Speak		{ virtual ~Speak(){} };	//polymorphic base is required
+struct Hello : Speak	{ };
+struct Open  : Speak	{ };
 
 
-struct Ground	      { virtual ~Ground(){} };  //polymorphic base is required
-struct World : Ground { };
+struct What		{ virtual ~What(){}  };	//polymorphic base is required
+struct World : What	{ };
+struct Sesame: What	{ };
 
 
-
-///////////////////////////////////////////////////////////////////////////////////
-//Fx: defines a set of functions
-struct Fx
+////////////////////////////////////////////////////////////////////////////////
+struct Fx_required_parts
 {
-//required:
-    using type = void(const char*, Speak*, Ground&);  /* declares the function signatue
-							 virtual params : {Speak*,Ground&} ;  two polymorphic params
-						      */
-    using domains = std::tuple<	      /* declares valid types of arguments */
-	    vane::_domain<Speak, Hello>,  //1st virtual argument is valid  when: it is a Speak or a Hello
-	    vane::_domain<Ground, World>  //2nd virtual one      is valid  when: it is a Ground or a World
-	>;
+    using type    = void (const char*, Speak*, What&);	/*  declares the virtual function signatue
+							    virtual params : {Speak*,What&} ;  two polymorphic params
+							*/
+    using domains = std::tuple<			/* declares the valid types of arguments */
+	    vane::_domain<Speak, Hello, Open>,	//1st virtual argument is valid  when: it is a Speak or a Hello or a Open
+	    vane::_domain<What,  World, Sesame>	//2nd virtual one      is valid  when: it is a What or a World or a Sesame
+	  >;
+};
 
-//optional (individual functions):
-    void operator()(const char *s, Speak *p, Ground &q) { printf("%10s --> speak_ground??\n", s);   }
-    void operator()(const char *s, Hello *p, World  &q) { printf("%10s --> hello_world   \n", s);   }
+//Fx: defines a set of functions
+struct Fx : Fx_required_parts
+{
+    void operator()(const char *s, Speak *p, What   &q) { printf("%10s --> speak_what??\n", s);  } //f0
+    void operator()(const char *s, Hello *p, World  &q) { printf("%10s --> hello_world \n", s);  } //f1
+    void operator()(const char *s, Open  *p, Sesame &q) { printf("%10s --> open_sesame \n", s);  } //f2
 };
 
 
-
-///////////////////////////////////////////////////////////////////////////////////
-
+////////////////////////////////////////////////////////////////////////////////
 template<typename Fx>
-void hello_world(Fx *func, const char *p, Speak *s, Ground &g)
+void process(Fx *func, const char *p, Speak *s, What &g)
 {
     (*func) (p, s, g);
 }
@@ -72,30 +73,28 @@ void hello_world(Fx *func, const char *p, Speak *s, Ground &g)
 int main() try 
 {
     Fx                     func;        //ordinary function object
-    vane::multi_func<Fx>   multi_func;  //multi_func object
-    vane::virtual_func<void(const char*, Speak*, Ground&)> *vfunc 
-        = &multi_func; //a multi_func is a virtual_func
+    vane::multi_func<Fx>   multi_func;
 
+    vane::virtual_func< void (const char*, Speak*, What&) >  *vfunc
+			= &multi_func;	//a multi_func is a virtual_func
 
-    Hello hello; 
-    World world;
+    Hello  hello; 
+    World  world;
+    Open   open;
+    Sesame sesame;
 
-    hello_world(&func,       "func",       &hello, world);
-    hello_world(&multi_func, "multi_func", &hello, world);
-    hello_world(vfunc,       "vfunc",      &hello, world);
+    process (&func,       "func",       &hello, world);
+    process (&multi_func, "multi_func", &hello, world);
+    process (vfunc,       "vfunc",      &open,  sesame);
 
 }
 catch(const std::exception &e) {
     printf("\n\nexception : %s", e.what());
 }
 
-
-/* output ****************************************************************************
-      func --> speak_ground??
-multi_func --> hello_world   
-     vfunc --> hello_world   
+/* output **********************************************************************
+      func --> speak_what??
+multi_func --> hello_world 
+     vfunc --> open_sesame 
 */
-// vim: sts=4:ts=8:smarttab
-
-
 ```
