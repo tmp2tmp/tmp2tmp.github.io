@@ -5,3 +5,6 @@
 */
 /*970px*/
 DIV.language-c\+\+ pre.highlight {width: 1125px !important}
+
+.navbar-fixed-top {position: static !important }
+.intro-header { margin-top: 50px !important}
