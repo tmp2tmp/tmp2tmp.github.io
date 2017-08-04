@@ -14,7 +14,7 @@ baseurl: ""
 # Of course don't forget to change the username and projectname to YOUR username and project
 
 # Name of website
-#title: My website
+title: tmp2tmp's home #XXX:zzzzzzzzzzzzzzzzzzzzzzzzzzzz
 
 # Short description of your site
 #description: A virtual proof that name is awesome!
@@ -43,7 +43,7 @@ navbar-links:
 # Change all these values or delete the ones you don't want.
 # Important: you must keep the "name" parameter, everything else you can remove
 author:
-  name: My Name
+  name: tmp2tmp			    #XXX:zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
   email: "youremail@domain.com"
 #  facebook: yourname  # eg. daattali
 #  github: yourname    # eg. daattali
@@ -86,7 +86,7 @@ share-links-active:
 
 # How to display the link to the website in the footer
 # Remove this if you don't want a link in the footer
-#url-pretty: "MyWebsite.com"  # eg. "deanattali.com/beautiful-jekyll"	#XXX:XXXXXXXXXXXXXXXXXXXXXXX
+#url-pretty: "MyWebsite.com"  # eg. "deanattali.com/beautiful-jekyll"	#XXX:zzzzzzzzzzzzzzzzzzzzzzzzz
 
 # --- Misc --- #
 # Fill in your Disqus shortname (NOT the userid) if you want to support Disqus comments
