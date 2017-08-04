@@ -2,9 +2,14 @@
 .col-md-10 { width: 100% !important }
 .col-md-offset-1 { left-margin:0 !important }
 .container { width: 90% !important}
+
+.navbar-fixed-top {position: static !important }
+.intro-header { margin-top: 50px !important}
 */
 /*970px*/
 DIV.language-c\+\+ pre.highlight {width: 1125px !important}
 
-.navbar-fixed-top {position: static !important }
-.intro-header { margin-top: 50px !important}
+.navbar-custom { background:#212121 !important; color:white !important}
+foooter { background:#212121 !important}
+.text-muted{ color:white!important}
+
