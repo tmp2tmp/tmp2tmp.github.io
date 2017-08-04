@@ -57,17 +57,17 @@ struct Fx_required_parts
 //Fx: defines a set of functions
 struct Fx : Fx_required_parts
 {
-    void operator()(const char *s, Speak *p, What   &q) { printf("%10s --> speak_what??\n", s);  } //f0
-    void operator()(const char *s, Hello *p, World  &q) { printf("%10s --> hello_world \n", s);  } //f1
-    void operator()(const char *s, Open  *p, Sesame &q) { printf("%10s --> open_sesame \n", s);  } //f2
+    void operator()(const char *p, Speak*, What  &) { printf("%10s --> speak_what??\n", p);  } //f0
+    void operator()(const char *p, Hello*, World &) { printf("%10s --> hello_world \n", p);  } //f1
+    void operator()(const char *p, Open *, Sesame&) { printf("%10s --> open_sesame \n", p);  } //f2
 };
 
 
 ////////////////////////////////////////////////////////////////////////////////
 template<typename Fx>
-void process(Fx *func, const char *p, Speak *s, What &g)
+void process(Fx *func, const char *p, Speak *s, What &w)
 {
-    (*func) (p, s, g);
+    (*func) (p, s, w);
 }
 
 int main() try 
